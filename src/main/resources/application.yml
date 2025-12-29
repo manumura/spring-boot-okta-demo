@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: spring-boot-demo-okta
+
+server:
+  port: 8080
+
+okta:
+    domain: ${OKTA_DOMAIN:https://{yourOktaDomain}}
+    client-id: ${OKTA_CLIENT_ID:{yourClientId}}
+    redirect-uri: ${OKTA_REDIRECT_URI:http://localhost:8080/api/v1/auth/login/callback}
+
+#okta:
+#  oauth2:
+#    issuer: https://{yourOktaDomain}/oauth2/default
+#    client-id: {yourClientId}
+#    client-secret: {yourClientSecret}
+#    scopes:
+#      - openid
+#      - profile
+#      - email
+
+logging:
+    level:
+        org.springframework.security: DEBUG
+#    pattern:
+#        console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: health,info
+    endpoint:
+        health:
+            show-details: always
+    metrics:
+        enable:
+            all: true
