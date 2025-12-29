@@ -32,6 +32,8 @@ public class OktaAuthenticationService {
         );
     }
 
+    // https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/
+    // https://developer.okta.com/docs/guides/set-up-org/main/#set-up-your-okta-org-for-a-password-factor-only-use-case
     public TokenResponse authenticate(String email, String password) {
         try {
             AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
